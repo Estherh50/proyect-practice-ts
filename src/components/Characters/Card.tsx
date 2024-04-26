@@ -1,6 +1,10 @@
+import { Character } from "../../system/redux/slices/characters_slice";
 
+interface Props {
+    character: Character
+}
 
-export const Card = (props) => {
+export const Card = (props: Props) => {
 
     const {character} = props;
 

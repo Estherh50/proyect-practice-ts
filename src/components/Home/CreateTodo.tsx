@@ -18,20 +18,20 @@ export const CreateTodo = (props: CreateTodoProps) => {
         event.preventDefault();
         const date = new Date().toLocaleDateString();
         if (!name) {
-            addAlert('Agrega el nombre del To Do', 'warning');
+            addAlert('Agrega el nombre de la tarea', 'warning');
             return
         }
         addTodo(name, date);
         setName('');
         toggleModal();
-        addAlert('To Do agregado', 'success');
+        addAlert('Tarea agregada', 'success');
     }
 
 
 
     return (<>
         <div className="mb-10">
-            <h3 className="mb-5">Crear To-Do</h3>
+            <h3 className="mb-5">Crear tarea</h3>
             <form onSubmit={onSubmit}>
                 <div className="flex gap-2">
                     <Input
@@ -39,6 +39,7 @@ export const CreateTodo = (props: CreateTodoProps) => {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         label=""
+                        name="todo"
                     />
                     <div>
                         <button

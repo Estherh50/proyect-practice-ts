@@ -1,10 +1,16 @@
 
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import Input from "../Generics/Input";
 import { contactActions, DataForm } from "../../hooks/contactActions";
+import { Alert } from "../Alerts/useAlert";
 
 
-export const Form = () => {
+interface Props {
+    createAlert: (options: Alert) => void
+}
+
+export const Form = (props: Props) => {
+    const {createAlert} = props;
     const { sendContact } = contactActions();
     const [state, setState] = useState<DataForm>({
         name: '',
@@ -14,7 +20,7 @@ export const Form = () => {
         message: ''
     });
 
-    const onSubmit = (event: any) => {
+    const onSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         if (state?.name && state?.lastName && state?.email && state?.phone && state?.message) {
             sendContact(state);
@@ -24,6 +30,10 @@ export const Form = () => {
                 email: '',
                 phone: '',
                 message: ''
+            });
+            createAlert({
+                text: 'Datos enviados',
+                variant: 'success'
             });
         }
     }
@@ -38,7 +48,7 @@ export const Form = () => {
 
 
     return (<>
-        <div className=" px-1 p-0 lg:px-8">
+        <div className=" px-1 pt-20 lg:px-8 w-screen">
             <div className="mx-auto max-w-2xl text-center">
                 <h2 className="text-3xl font-bold tracking-tight text-gray-900 mt-10">Contacto</h2>
                 <p className="mt-2 text-lg leading-8 text-gray-600">
@@ -122,7 +132,7 @@ export const Form = () => {
                         type="submit"
                         className="block w-full rounded-md bg-neutral-800 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm"
                     >
-                        Let's talk
+                        Enviar datos
                     </button>
                 </div>
             </form>

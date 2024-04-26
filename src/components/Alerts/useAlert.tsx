@@ -2,7 +2,7 @@ import { useState } from "react";
 import Alert from "./Alert";
 
 export type VarianAlerts = "success" | "danger" | "warning";
-type Alert = {
+export type Alert = {
     text: string;
     variant: VarianAlerts;
   };
