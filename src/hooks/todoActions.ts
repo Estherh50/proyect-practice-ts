@@ -17,10 +17,8 @@ export const todoActions = () => {
         const querySnapshot = await getDocs(collection(db, "users", `${id}`, "ToDos"));
         const listToDos: TodoAndID[] = [];
         querySnapshot.forEach((doc: any) => {
-            console.log(doc.data());
             listToDos.push(doc.data())
         });
-        console.log(listToDos);
         dispatch(listTodos(listToDos));
         changeLoad(false);
     }
@@ -37,7 +35,6 @@ export const todoActions = () => {
         dispatch(setLoadLight(true));
         const dataRef = doc(collection(db, "users", `${idUser}`, "ToDos"));
         const idRef = dataRef?.id;
-        console.log(dataRef.id);
         const data = {
             id: idRef,
             name,

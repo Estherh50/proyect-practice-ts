@@ -18,7 +18,6 @@ export const contactActions = () => {
         dispatch(setLoadLight(true));
         const dataRef = doc(collection(db, "contacts"));
         const idRef = dataRef?.id;
-        console.log(dataRef.id);
         const data = {
             id: idRef,
             idUser,

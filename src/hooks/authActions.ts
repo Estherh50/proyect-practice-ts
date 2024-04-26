@@ -1,19 +1,14 @@
-import { saveUser } from "../system/redux/slices/auth_slice";
+
+import { saveUser, User } from "../system/redux/slices/auth_slice";
 import { useAppDispatch } from "./store"
 
-
-interface PropsUser {
-    id: string,
-    email: any,
-    isAuth: boolean
-}
 
 export const authActions = () => {
     const dispatch = useAppDispatch();
 
 
 
-    const addUser = ({ id, email, isAuth }: PropsUser) => {
+    const addUser = ({ id, email, isAuth }: User) => {
         dispatch(saveUser({ id, isAuth, email }))
     }
 

@@ -21,6 +21,7 @@ const Login = () => {
         const dataUser = await login(email, password);
         if (dataUser?.email) {
             addUser({ id: dataUser.uid, email: dataUser.email, isAuth: true });
+            localStorage.setItem('sesion', JSON.stringify({ id: dataUser.uid, email: dataUser.email, isAuth: true }));
             getListTodos(dataUser.uid);
             navigate('/');
             setLoading(false)

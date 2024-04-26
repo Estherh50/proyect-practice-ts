@@ -4,7 +4,7 @@ export interface User {
     id: string;
     email: string;
     isAuth: boolean;
-    name: string;
+    name?: string;
 }
 
 const initialState: User = {
@@ -18,8 +18,7 @@ export const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        saveUser: (state, action: PayloadAction<User>) => {
-            console.log(state);
+        saveUser: (_state, action: PayloadAction<User>) => {
             return {...action.payload};
         }
     }

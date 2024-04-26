@@ -11,7 +11,6 @@ export const charactersActions = () => {
         characters.getAll({page: 1}).then((data) => {
             const list: Character[] = data.data.results;
             dispatch(listCharacters(list));
-            console.log(data.data.results)
         }).catch((err) => {
             console.log(err)
         })

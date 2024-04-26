@@ -5,7 +5,7 @@ import { doc, setDoc } from "firebase/firestore";
 
 export const login = async (
     email: string,
-    password: string
+    password: string 
 ): Promise<User | null> => {
     try {
         const res = await signInWithEmailAndPassword(auth, email, password);

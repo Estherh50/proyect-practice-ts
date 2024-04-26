@@ -18,8 +18,9 @@ const Signup = () => {
         event.preventDefault();
         setLoading(true);
         const dataUser = await register(name, email, password);
-        if (dataUser?.uid) {
+        if (dataUser?.uid && dataUser.email) {
             addUser({ id: dataUser.uid, email: dataUser.email, isAuth: true });
+            localStorage.setItem('sesion', JSON.stringify({ id: dataUser.uid, email: dataUser.email, isAuth: true }));
             navigate('/');
             setLoading(false);
         }
