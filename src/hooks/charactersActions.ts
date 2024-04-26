@@ -1,6 +1,6 @@
 
 import { useAppDispatch } from "./store"
-import { characters } from "../system/api/characters";
+import { characters } from "../api/characters";
 import { Character, listCharacters} from "../system/redux/slices/characters_slice";
 
 

@@ -37,7 +37,7 @@ function App() {
 
 
   return (
-    <div className="h-screen w-screen p-0  content-center" >
+    <div className="h-screen p-0 inline-block" >
       <Router>
         {auth ? <Navbar /> : null}
         <div className="flex  justify-center auto" >

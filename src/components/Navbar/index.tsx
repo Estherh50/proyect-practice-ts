@@ -54,7 +54,7 @@ export const Navbar = () => {
 
                 {/* Hamburger or Close Icon */}
                 <div className=' md:hidden z-10' onClick={handleClick}>
-                    {nav ? <h1>hola</h1> : <RxHamburgerMenu size={25} />}
+                    {nav ? <RxHamburgerMenu size={25}/> : <RxHamburgerMenu size={25} />}
                 </div>
                 {/* Mobile Menu */}
                 <ul
@@ -66,8 +66,7 @@ export const Navbar = () => {
                 >
                     <Link to='/'><li className='hover:text-teal-700'>Home</li></Link>
                     <Link to='/characters'><li className='hover:text-teal-700'>Personajes</li></Link>
-                    <Link to='/other'><li className='hover:text-teal-700'>Products</li></Link>
-                    <Link to='/contact'><li className='hover:text-teal-700'>Contact Us</li></Link>
+                    <Link to='/contact'><li className='hover:text-teal-700'>Contáctanos</li></Link>
 
                 </ul>
         </nav>

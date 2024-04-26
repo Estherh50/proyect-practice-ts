@@ -23,7 +23,7 @@ const Characters = () => {
     }, [listCharacteres]);
 
     return ( 
-        <div style={{marginTop: '130vh'}}>
+        <div className="mt-20">
             {loading ? <LoadingLight /> : null }
             <div className="flex flex-wrap">
                 {listCharacteres.map((character) => (

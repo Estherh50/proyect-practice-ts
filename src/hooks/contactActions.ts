@@ -1,6 +1,6 @@
 
 import { collection, doc, setDoc } from "firebase/firestore";
-import { db } from "../system/model/firebase";
+import { db } from "../services/firebase";
 import { useAppDispatch, useAppSelector } from "./store";
 import { setLoadLight } from "../system/redux/slices/loading_slice";
 

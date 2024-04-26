@@ -48,7 +48,7 @@ export const Form = (props: Props) => {
 
 
     return (<>
-        <div className=" px-1 p-0 lg:px-8">
+        <div className=" px-1 pt-20 lg:px-8 w-screen">
             <div className="mx-auto max-w-2xl text-center">
                 <h2 className="text-3xl font-bold tracking-tight text-gray-900 mt-10">Contacto</h2>
                 <p className="mt-2 text-lg leading-8 text-gray-600">

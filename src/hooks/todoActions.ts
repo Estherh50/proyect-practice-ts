@@ -2,7 +2,7 @@
 import { collection, deleteDoc, doc, getDocs, setDoc, updateDoc } from "firebase/firestore";
 import { addNewTodo, deleteTodoById, listTodos, TodoAndID, TodoID, update } from "../system/redux/slices/todo_slice";
 import { useAppDispatch, useAppSelector } from "./store"
-import { db } from "../system/model/firebase";
+import { db } from "../services/firebase";
 import { loadingActions } from "./loadingActions";
 import { setLoadLight } from "../system/redux/slices/loading_slice";
 
