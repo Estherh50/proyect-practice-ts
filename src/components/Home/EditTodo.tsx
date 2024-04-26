@@ -2,14 +2,16 @@ import React, { useEffect, useState } from "react";
 import { todoActions } from "../../hooks/todoActions"
 import { useAppSelector } from "../../hooks/store";
 import Input from "../Generics/Input";
+import { VarianAlerts } from "../Alerts/useAlert";
 
 interface EditTodoProps {
     toggleModal: () => any;
     idUserUpdate: string;
+    addAlert: (textAlert: string, variant: VarianAlerts) => void
 }
 
 export const EditTodo = (props: EditTodoProps) => {
-    const { idUserUpdate, toggleModal } = props;
+    const { idUserUpdate, toggleModal, addAlert } = props;
     const [name, setName] = useState('');
     const { updateTodo } = todoActions();
 
@@ -23,6 +25,7 @@ export const EditTodo = (props: EditTodoProps) => {
         const date = dataTodo?.[0]?.date;
         updateTodo(id, name, date);
         toggleModal();
+        addAlert('Tarea modificada', 'success');
     }
 
 
@@ -34,7 +37,7 @@ export const EditTodo = (props: EditTodoProps) => {
 
     return (<>
         <div className="mb-10">
-        <h3 className="mb-5">Modificar To-Do</h3>
+        <h3 className="mb-5">Modificar tarea</h3>
             <form onSubmit={onSubmit}>
                 <div className="flex gap-2">
                     {React.useMemo(() => (
@@ -43,6 +46,7 @@ export const EditTodo = (props: EditTodoProps) => {
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             label=""
+                            name="name"
                         />
                     ), [name])}
                     <div>

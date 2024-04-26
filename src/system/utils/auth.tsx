@@ -41,13 +41,12 @@ export const register = async (
         return dataUser;
     } catch (err) {
         if (err instanceof Error) {
-            // Handle authentication-specific errors gracefully
             console.error(err.message);
             alert(err.message);
         } else {
             console.error("Unexpected error", err);
         }
-        return null; // Return null in case of error
+        return null;
     }
 
 }

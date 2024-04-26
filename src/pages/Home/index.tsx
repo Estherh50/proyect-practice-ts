@@ -4,12 +4,15 @@ import { ListToDo } from "../../components/Home/ListToDo";
 import Modal from "../../components/Modal";
 import useAlert, { VarianAlerts } from "../../components/Alerts/useAlert";
 import { IoIosAdd } from "react-icons/io";
+import { useAppSelector } from "../../hooks/store";
+import Loading from "../../components/Generics/Loading/Loading";
 
 
 const Home = () => {
 
     const [showModal, setShowModal] = useState<boolean>(false);
     const { alerts, createAlert } = useAlert();
+    const loading = useAppSelector((state) => state?.loadingReducer.isLoading);
 
     const toggleModal = () => {
         setShowModal(!showModal);
@@ -25,7 +28,7 @@ const Home = () => {
 
     return (
         <div className="lg:mx-auto lg:max-w p-20">
-
+            {loading ? <Loading /> : null}
             <div>
                 {alerts}
             </div>
@@ -43,7 +46,7 @@ const Home = () => {
                     
                 </button>
             </div>
-            <ListToDo />
+            <ListToDo addAlert={addAlert} />
         </div>
     );
 }

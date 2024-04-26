@@ -1,7 +1,8 @@
 
 import { collection, doc, setDoc } from "firebase/firestore";
 import { db } from "../system/model/firebase";
-import { useAppSelector } from "./store";
+import { useAppDispatch, useAppSelector } from "./store";
+import { setLoadLight } from "../system/redux/slices/loading_slice";
 
 
 export interface DataForm {
@@ -9,11 +10,12 @@ export interface DataForm {
 }
 
 export const contactActions = () => {
-
+    const dispatch = useAppDispatch();
     const idUser = useAppSelector((state) => state?.authReducer?.id);
 
 
     const sendContact = async (dataForm: DataForm) => {
+        dispatch(setLoadLight(true));
         const dataRef = doc(collection(db, "contacts"));
         const idRef = dataRef?.id;
         console.log(dataRef.id);
@@ -23,7 +25,7 @@ export const contactActions = () => {
             ...dataForm
         }
         await setDoc(dataRef, data);
-
+        dispatch(setLoadLight(false));
     }
 
     return { sendContact };
